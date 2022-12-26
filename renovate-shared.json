@@ -1,0 +1,39 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    ":rebaseStalePrs",
+    "monorepo:dotnet"
+  ],
+  "dependencyDashboard": true,
+  "labels": [
+    "dependencies"
+  ],
+  "packageRules": [
+    {
+      "matchSourceUrls": [
+        "https://github.com/TurnerSoftware/MongoFramework"
+      ],
+      "groupName": "MongoFramework"
+    },
+    {
+      "matchSourceUrls": [
+        "https://github.com/TurnerSoftware/CacheTower"
+      ],
+      "groupName": "CacheTower"
+    },
+    {
+      "matchPackageNames": [ "^TurnerSoftware.BuildVersioning" ],
+      "groupName": "TurnerSoftware.BuildVersioning",
+      "addLabels": [
+        "ignore-for-release"
+      ]
+    },
+    {
+      "matchSourceUrlPrefixes": [
+        "https://github.com/TurnerSoftware/"
+      ],
+      "automerge": true
+    }
+  ]
+}
